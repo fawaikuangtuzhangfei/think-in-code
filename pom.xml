@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.think.boyfriend</groupId>
+    <artifactId>think-in-code</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>thinking-in-code</name>
+    <description>代码实战</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>think-in-jvm</module>
+        <module>think-in-leetcode</module>
+    </modules>
+
+
+
+</project>
