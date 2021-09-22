@@ -1,7 +1,9 @@
 # jvm-in-code
 
 #### 介绍
-（第三版）深入理解Java虚拟机：JVM高级特性与最佳实践
+think-in-code 包含：
+1、实战-（第三版）深入理解Java虚拟机：JVM高级特性与最佳实践
+2、leetcode
 
 #### 软件架构
 软件架构说明
