@@ -20,4 +20,10 @@ public class ReadPropertiesByClassLoader {
         //获取key对应的value值
         return properties.getProperty(key);
     }
+
+    public static Object getBean(String fileName, String key) throws Exception{
+        String className = ReadPropertiesByClassLoader.getStrFromProperties(fileName, key);
+        Class<?> aClass = Class.forName(className);
+        return aClass.newInstance();
+    }
 }
