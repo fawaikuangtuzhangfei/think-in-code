@@ -12,6 +12,8 @@
     <modules>
         <module>think-in-jvm</module>
         <module>think-in-leetcode</module>
+        <module>think-in-design-pattern</module>
+        <module>think-in-common</module>
     </modules>
 
 
