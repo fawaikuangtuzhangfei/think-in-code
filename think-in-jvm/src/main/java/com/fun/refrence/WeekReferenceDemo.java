@@ -13,7 +13,7 @@ public class WeekReferenceDemo {
     public static void main(String[] args) {
 
         User o1 = new User();
-        WeakReference<Object> weakReference = new WeakReference<Object>(o1);
+        WeakReference<Object> weakReference = new WeakReference<>(o1);
 
         System.out.println(o1);
         System.out.println(weakReference.get());
