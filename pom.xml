@@ -14,6 +14,7 @@
         <module>think-in-leetcode</module>
         <module>think-in-design-pattern</module>
         <module>think-in-common</module>
+        <module>think-in-problem</module>
     </modules>
 
 
