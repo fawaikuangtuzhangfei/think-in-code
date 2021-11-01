@@ -1,6 +1,6 @@
-package com.think.design.strategy.observable.book.observer;
+package com.think.design.observable.book.observer;
 
-import com.think.design.strategy.observable.book.bean.WeatherDataDTO;
+import com.think.design.observable.book.bean.WeatherDataDTO;
 
 /**
  * 观察者-观察者超类

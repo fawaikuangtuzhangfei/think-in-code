@@ -1,9 +1,9 @@
-package com.think.design.strategy.observable.book.observer;
+package com.think.design.observable.book.observer;
 
-import com.think.design.strategy.observable.book.bean.WeatherDataDTO;
-import com.think.design.strategy.observable.book.observer.impl.CurrentConditionsDisplay;
-import com.think.design.strategy.observable.book.observer.impl.HeatIndexDisplay;
-import com.think.design.strategy.observable.book.subject.impl.WeatherData;
+import com.think.design.observable.book.bean.WeatherDataDTO;
+import com.think.design.observable.book.observer.impl.CurrentConditionsDisplay;
+import com.think.design.observable.book.observer.impl.HeatIndexDisplay;
+import com.think.design.observable.book.subject.impl.WeatherData;
 
 /**
  * @author Java男朋友

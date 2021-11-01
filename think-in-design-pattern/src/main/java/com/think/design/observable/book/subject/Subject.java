@@ -1,6 +1,6 @@
-package com.think.design.strategy.observable.book.subject;
+package com.think.design.observable.book.subject;
 
-import com.think.design.strategy.observable.book.observer.Observer;
+import com.think.design.observable.book.observer.Observer;
 
 /**
  * 观察者模式-主题超类

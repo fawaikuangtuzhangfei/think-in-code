@@ -1,4 +1,4 @@
-package com.think.design.strategy.observable.book.bean;
+package com.think.design.observable.book.bean;
 
 /**
  * 封装了天气的数据的实体类

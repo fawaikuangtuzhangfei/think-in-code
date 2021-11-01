@@ -1,8 +1,8 @@
-package com.think.design.strategy.observable.book.subject.impl;
+package com.think.design.observable.book.subject.impl;
 
-import com.think.design.strategy.observable.book.bean.WeatherDataDTO;
-import com.think.design.strategy.observable.book.observer.Observer;
-import com.think.design.strategy.observable.book.subject.Subject;
+import com.think.design.observable.book.observer.Observer;
+import com.think.design.observable.book.bean.WeatherDataDTO;
+import com.think.design.observable.book.subject.Subject;
 
 import java.util.ArrayList;
 import java.util.List;

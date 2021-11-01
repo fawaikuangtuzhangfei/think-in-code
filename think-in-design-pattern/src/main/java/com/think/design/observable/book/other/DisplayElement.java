@@ -1,4 +1,4 @@
-package com.think.design.strategy.observable.book.other;
+package com.think.design.observable.book.other;
 
 /**
  * 用于展示公告板
