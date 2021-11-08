@@ -1,4 +1,4 @@
-package com.think.design.factory.simple.practise;
+package com.think.design.factory.old.simple.practise;
 
 /**
  * 使用简单工厂模式设计一个可以创建不同几何形状（如圆形、方形和三角形等）的绘图工具，

@@ -1,4 +1,4 @@
-package com.think.design.factory.method.practise;
+package com.think.design.factory.old.method.practise;
 
 /**
  * 使用工厂方法模式设计一个程序来读取各种不同类型的图片格式，针对每一种图片格式都设计一个图片读取器，

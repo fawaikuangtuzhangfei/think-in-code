@@ -1,4 +1,4 @@
-package com.think.design.factory.abstraction;
+package com.think.design.factory.old.abstraction;
 
 /**
  * @author yc

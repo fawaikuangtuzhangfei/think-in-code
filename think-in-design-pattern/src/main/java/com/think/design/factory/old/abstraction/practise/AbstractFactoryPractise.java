@@ -1,4 +1,4 @@
-package com.think.design.factory.abstraction.practise;
+package com.think.design.factory.old.abstraction.practise;
 
 /**
  * 练习

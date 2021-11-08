@@ -1,4 +1,4 @@
-package com.think.design.factory.simple;
+package com.think.design.factory.old.simple;
 
 import com.think.common.utils.ReadPropertiesByClassLoader;
 
