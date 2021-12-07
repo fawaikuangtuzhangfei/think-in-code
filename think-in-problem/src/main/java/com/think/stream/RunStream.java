@@ -16,21 +16,33 @@ public class RunStream {
 
                 .limit(5)
                 // 无状态操作
-                .peek(System.out::println)
+                .peek(s -> System.out.println(Thread.currentThread().getName() + " peek1:" + s))
                 // 无状态操作
                 .filter(s -> {
-                    System.out.println("filter:" + s);
-                    return s > 100000;
+                    System.out.println(Thread.currentThread().getName()  + " filter:" + s);
+                    return true;
                 })
                 // 有状态操作
                 .sorted((i1, i2) ->{
-                    System.out.println("排序:" + i1 + "," + i2);
+                    System.out.println(Thread.currentThread().getName()  + " 排序:" + i1 + "," + i2);
                     return i1.compareTo(i2);
                 })
                 // 无状态操作
-                .peek(s -> System.out.println("peek2:" + s))
+                .peek(s -> System.out.println(Thread.currentThread().getName() + " peek2:" + s))
+                .peek(s -> System.out.println(Thread.currentThread().getName() + " peek3:" + s))
                 // 并行
                 .parallel()
+                // 无状态操作
+                .peek(s -> System.out.println(Thread.currentThread().getName() + " peek4:" + s))
+                .filter(s -> {
+                    System.out.println(Thread.currentThread().getName()  + " filter2:" + s);
+                    return true;
+                })
+                // 有状态操作
+                .sorted((i1, i2) ->{
+                    System.out.println(Thread.currentThread().getName()  + " 排序2:" + i1 + "," + i2);
+                    return i1.compareTo(i2);
+                })
                 ;
         integerStream.count();
 

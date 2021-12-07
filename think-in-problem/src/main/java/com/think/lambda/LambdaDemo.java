@@ -8,12 +8,25 @@ package com.think.lambda;
 public class LambdaDemo {
 
     public static void main(String[] args) {
-        Interface1 num1 = i -> i*2;
+        MyInterface num1 = i -> {
+            MyInterface.sum(1,3);
+//            add(1); lamda表达式不能像匿名内部类一样调用默认实现的方法
+            return i*2;
+        };
+        MyInterface myInterface = new MyInterface(){
+
+            @Override
+            public int doubleNum(int i) {
+                add(1);
+                MyInterface.sum(1,2);
+                return 0;
+            }
+        };
     }
 }
 
 @FunctionalInterface
-interface Interface1{
+interface MyInterface {
     int doubleNum(int i);
 
     default void add(int i){
@@ -21,10 +34,17 @@ interface Interface1{
     }
 
 //    int doubleNum2(int i); 会报错，@FunctionalInterface标注后，只能存在一个
+
+    static void sum(int x, int y){
+
+    }
+
+    @Override
+    boolean equals(Object obj);
 }
 
 @FunctionalInterface
-interface Interface2{
+interface MyInterface2 {
     int doubleNum(int i);
 
     default void add(int i, int j){
@@ -33,7 +53,7 @@ interface Interface2{
 }
 
 @FunctionalInterface
-interface Interface3 extends Interface1, Interface2{
+interface MyInterface3 extends MyInterface, MyInterface2 {
 
     @Override
     default void add(int i) {

@@ -15,6 +15,7 @@
         <module>think-in-design-pattern</module>
         <module>think-in-common</module>
         <module>think-in-problem</module>
+        <module>think-in-jdk11</module>
     </modules>
 
 

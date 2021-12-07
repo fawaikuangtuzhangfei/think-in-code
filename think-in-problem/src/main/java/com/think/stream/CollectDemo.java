@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 /**
  * 收集器
- * 最好使用方法引用，这样就不会生成一个类似 lambda$0 这样的函数
+ *  PS:没测试处理->最好使用方法引用，这样就不会生成一个类似 lambda$0 这样的函数
  * @author Java男朋友
  * @date 2021-12-05 17:19
  */
@@ -19,6 +19,7 @@ public class CollectDemo {
 
         // 得到所有学生的年龄列表
         Set<Integer> collect = list.stream().map(Student::getAge).collect(Collectors.toSet());
+        List<Integer> collect2 = list.stream().map(i -> i.getAge()).collect(Collectors.toList());
 
         // 统计汇总信息 总数、求和、最大、最小、平均
         IntSummaryStatistics ageSummary = list.stream().collect(Collectors.summarizingInt(Student::getAge));
