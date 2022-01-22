@@ -1,7 +1,8 @@
 package com.think.design.iterator;
 
-import com.think.design.iterator.base.DinerMenu;
-import com.think.design.iterator.base.PancakeHouseMenu;
+import com.think.design.iterator.aggregate.concreteaggregate.DinerMenu;
+import com.think.design.iterator.aggregate.concreteaggregate.PancakeHouseMenu;
+import com.think.design.iterator.base.Waitress;
 
 /**
  * @author Java男朋友

@@ -1,8 +1,7 @@
-package com.think.design.iterator;
+package com.think.design.iterator.base;
 
-import com.think.design.iterator.base.DinerMenu;
 import com.think.design.iterator.base.MenuItem;
-import com.think.design.iterator.base.PancakeHouseMenu;
+import com.think.design.iterator.aggregate.Menu;
 
 import java.util.Iterator;
 
@@ -14,11 +13,11 @@ import java.util.Iterator;
  */
 public class Waitress {
 
-    private PancakeHouseMenu pancakeHouseMenu;
+    private Menu pancakeHouseMenu;
 
-    private DinerMenu dinerMenu;
+    private Menu dinerMenu;
 
-    public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) {
+    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
         this.pancakeHouseMenu = pancakeHouseMenu;
         this.dinerMenu = dinerMenu;
     }

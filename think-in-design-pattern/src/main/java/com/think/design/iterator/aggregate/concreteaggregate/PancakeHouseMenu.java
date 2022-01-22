@@ -1,6 +1,6 @@
-package com.think.design.iterator.base;
+package com.think.design.iterator.aggregate.concreteaggregate;
 
-import com.think.design.iterator.PancakeHouseMenuIterator;
+import com.think.design.iterator.aggregate.Menu;
 import com.think.design.iterator.base.MenuItem;
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Iterator;
  * @author Java男朋友
  * @date 2022-01-12 7:43
  */
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
 
     ArrayList menuItems;
 
@@ -41,8 +41,9 @@ public class PancakeHouseMenu {
     }
 
 
+    @Override
     public Iterator createIterator() {
-        return new PancakeHouseMenuIterator(menuItems);
+        return menuItems.iterator();
     }
 
 }

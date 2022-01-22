@@ -1,6 +1,8 @@
-package com.think.design.iterator.base;
+package com.think.design.iterator.aggregate.concreteaggregate;
 
-import com.think.design.iterator.DinerMenuIterator;
+import com.think.design.iterator.concreteiterator.DinerMenuIterator;
+import com.think.design.iterator.aggregate.Menu;
+import com.think.design.iterator.base.MenuItem;
 
 import java.util.Iterator;
 
@@ -9,7 +11,7 @@ import java.util.Iterator;
  * @author Java男朋友
  * @date 2022-01-12 8:01
  */
-public class DinerMenu {
+public class DinerMenu implements Menu {
 
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
@@ -34,6 +36,7 @@ public class DinerMenu {
 
         addItem("Steamed Veggies and Brown Rice",
                 "Steamed vegetables over brown rice", true, 3.99);
+
         addItem("Pasta",
                 "Spaghetti with Marinara Sauce, and a slice of sourdough bread",
                 true, 3.89);
@@ -65,6 +68,7 @@ public class DinerMenu {
     /**
      * 用来从菜单项数组创建一个DinerMenuIterator,并将它返回给客户
      */
+    @Override
     public Iterator createIterator() {
         return new DinerMenuIterator(menuItems);
     }
