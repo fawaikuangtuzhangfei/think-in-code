@@ -1,4 +1,4 @@
-package com.think.config;
+package com.think.config.bean;
 
 import com.think.condition.WindowsCondition;
 import com.think.entity.Person;

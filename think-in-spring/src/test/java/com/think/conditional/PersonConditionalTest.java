@@ -1,6 +1,6 @@
 package com.think.conditional;
 
-import com.think.config.PersonBeanConfig;
+import com.think.config.bean.PersonBeanConfig;
 import com.think.entity.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
