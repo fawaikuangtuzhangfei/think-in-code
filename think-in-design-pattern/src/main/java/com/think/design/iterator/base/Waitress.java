@@ -5,6 +5,7 @@ import com.think.design.iterator.base.MenuItem;
 import com.think.design.iterator.aggregate.Menu;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * 女招待
@@ -14,30 +15,17 @@ import java.util.Iterator;
  */
 public class Waitress {
 
-    private Menu pancakeHouseMenu;
+    private List<Menu> menus;
 
-    private Menu dinerMenu;
 
-    private Menu cafeMenu;
-
-    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
-        this.pancakeHouseMenu = pancakeHouseMenu;
-        this.dinerMenu = dinerMenu;
-    }
-
-    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu, Menu cafeMenu) {
-        this.pancakeHouseMenu = pancakeHouseMenu;
-        this.dinerMenu = dinerMenu;
-        this.cafeMenu = cafeMenu;
+    public Waitress(List<Menu> menus) {
+        this.menus = menus;
     }
 
     public void printMenu(){
-        Iterator iterator = pancakeHouseMenu.createIterator();
-        Iterator dinerMenuIterator = dinerMenu.createIterator();
-        Iterator cafeIterator = cafeMenu.createIterator();
-        printMenu(iterator);
-        printMenu(dinerMenuIterator);
-        printMenu(cafeIterator);
+        for (Menu menu : menus) {
+            printMenu(menu.createIterator());
+        }
     }
 
     public void printMenu(Iterator iterator){

@@ -1,9 +1,13 @@
 package com.think.design.iterator;
 
+import com.think.design.iterator.aggregate.Menu;
 import com.think.design.iterator.aggregate.concreteaggregate.CafeMenu;
 import com.think.design.iterator.aggregate.concreteaggregate.DinerMenu;
 import com.think.design.iterator.aggregate.concreteaggregate.PancakeHouseMenu;
 import com.think.design.iterator.base.Waitress;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Java男朋友
@@ -12,10 +16,14 @@ import com.think.design.iterator.base.Waitress;
 public class MenuTest {
 
     public static void main(String[] args) {
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-        DinerMenu dinerMenu = new DinerMenu();
-        CafeMenu cafeMenu = new CafeMenu();
-        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+        Menu pancakeHouseMenu = new PancakeHouseMenu();
+        Menu dinerMenu = new DinerMenu();
+        Menu cafeMenu = new CafeMenu();
+        List<Menu> menus = new ArrayList<>();
+        menus.add(pancakeHouseMenu);
+        menus.add(cafeMenu);
+        menus.add(dinerMenu);
+        Waitress waitress = new Waitress(menus);
         waitress.printMenu();
     }
 }
