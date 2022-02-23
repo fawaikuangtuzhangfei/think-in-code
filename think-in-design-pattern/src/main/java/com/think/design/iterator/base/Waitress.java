@@ -1,5 +1,6 @@
 package com.think.design.iterator.base;
 
+import com.think.design.iterator.aggregate.concreteaggregate.CafeMenu;
 import com.think.design.iterator.base.MenuItem;
 import com.think.design.iterator.aggregate.Menu;
 
@@ -17,16 +18,26 @@ public class Waitress {
 
     private Menu dinerMenu;
 
+    private Menu cafeMenu;
+
     public Waitress(Menu pancakeHouseMenu, Menu dinerMenu) {
         this.pancakeHouseMenu = pancakeHouseMenu;
         this.dinerMenu = dinerMenu;
     }
 
+    public Waitress(Menu pancakeHouseMenu, Menu dinerMenu, Menu cafeMenu) {
+        this.pancakeHouseMenu = pancakeHouseMenu;
+        this.dinerMenu = dinerMenu;
+        this.cafeMenu = cafeMenu;
+    }
+
     public void printMenu(){
         Iterator iterator = pancakeHouseMenu.createIterator();
         Iterator dinerMenuIterator = dinerMenu.createIterator();
+        Iterator cafeIterator = cafeMenu.createIterator();
         printMenu(iterator);
         printMenu(dinerMenuIterator);
+        printMenu(cafeIterator);
     }
 
     public void printMenu(Iterator iterator){

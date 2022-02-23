@@ -1,5 +1,6 @@
 package com.think.design.iterator;
 
+import com.think.design.iterator.aggregate.concreteaggregate.CafeMenu;
 import com.think.design.iterator.aggregate.concreteaggregate.DinerMenu;
 import com.think.design.iterator.aggregate.concreteaggregate.PancakeHouseMenu;
 import com.think.design.iterator.base.Waitress;
@@ -13,7 +14,8 @@ public class MenuTest {
     public static void main(String[] args) {
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
         DinerMenu dinerMenu = new DinerMenu();
-        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+        CafeMenu cafeMenu = new CafeMenu();
+        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
         waitress.printMenu();
     }
 }
