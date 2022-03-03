@@ -1,11 +1,8 @@
 package com.think.design.component.component.client;
 
 import com.think.design.component.component.MenuComponent;
-import com.think.design.iterator.aggregate.Menu;
-import com.think.design.iterator.base.MenuItem;
 
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * 女招待
@@ -23,6 +20,19 @@ public class Waitress {
 
     public void printMenu(){
         menus.print();
+    }
+
+    public void printVegetarian(){
+        Iterator<MenuComponent> iterator = menus.createIterator();
+        while (iterator.hasNext()) {
+            try {
+                MenuComponent next = iterator.next();
+                if (next.isVegetarian()){
+                    next.print();
+                }
+            } catch (Exception e) {
+            }
+        }
     }
 
 

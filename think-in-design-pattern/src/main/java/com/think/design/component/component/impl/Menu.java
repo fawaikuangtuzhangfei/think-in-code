@@ -1,6 +1,7 @@
 package com.think.design.component.component.impl;
 
 import com.think.design.component.component.MenuComponent;
+import com.think.design.component.iterators.CompositeIterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,6 +46,11 @@ public class Menu extends MenuComponent {
     @Override
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public Iterator<MenuComponent> createIterator() {
+        return new CompositeIterator(menuComponents.iterator());
     }
 
     @Override
