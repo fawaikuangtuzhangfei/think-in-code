@@ -22,7 +22,12 @@ public class Waitress {
     }
 
     public void printMenu(){
+        System.out.println("test");
         menus.print();
+    }
+
+    public void printVegetarian(){
+        System.out.println("mt");
     }
 
 
