@@ -1,6 +1,9 @@
 package com.think.design.component.component.impl;
 
 import com.think.design.component.component.MenuComponent;
+import com.think.design.component.iterators.NullIterator;
+
+import java.util.Iterator;
 
 /**
  * @author Java男朋友
@@ -42,6 +45,11 @@ public class MenuItem extends MenuComponent {
     @Override
     public boolean isVegetarian() {
         return vegetarian;
+    }
+
+    @Override
+    public Iterator<MenuComponent> createIterator() {
+        return new NullIterator();
     }
 
     @Override

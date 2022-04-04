@@ -1,5 +1,7 @@
 package com.think.design.component.component;
 
+import java.util.Iterator;
+
 /**
  * 菜单组合
  * @author Java男朋友
@@ -27,6 +29,10 @@ public class MenuComponent {
         throw new UnsupportedOperationException();
     }
     public boolean isVegetarian() {
+        throw new UnsupportedOperationException();
+    }
+
+    public Iterator<MenuComponent> createIterator(){
         throw new UnsupportedOperationException();
     }
 
