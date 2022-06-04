@@ -1,7 +1,5 @@
 package com.think.future;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 

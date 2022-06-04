@@ -5,7 +5,7 @@
     <groupId>com.think.boyfriend</groupId>
     <artifactId>think-in-code</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>thinking-in-code</name>
+    <name>think-in-code</name>
     <description>代码实战</description>
     <packaging>pom</packaging>
 
@@ -19,6 +19,21 @@
         <module>think-in-jdk8</module>
     </modules>
 
+
+    <profiles>
+        <profile>
+            <id>jdk-1.8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+    </profiles>
 
 
 </project>
