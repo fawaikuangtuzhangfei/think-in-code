@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author yechaoa
+ * @author nanshoudabaojian
  * @date 2022-07-27 7:42
  */
-public class Test {
+public class TreeTest {
 
     public static void main(String[] args) {
         List<Menu> menuList = new ArrayList<>();
 
-        String str = "20c942930be311ed80ac005056bff24d,d8948bc80bc711ed80ac005056bff24d,信审文件上传\n";
+        String str = "20c942930be311ed80ac005056bff24d,2c94e48f8242ae31018242bb1b4d0196,上传\n";
 
         String[] split = str.split("\n");
         for (String s : split) {
             String[] split1 = s.split(",");
             String id = split1[0];
             String parentId = split1[1];
-            String name = split1[2];
+            String name = id + "," + split1[2];
             menuList.add(new Menu(id, parentId, name));
         }
 
