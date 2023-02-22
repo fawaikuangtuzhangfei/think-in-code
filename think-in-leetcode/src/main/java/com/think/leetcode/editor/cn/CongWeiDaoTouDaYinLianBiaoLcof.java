@@ -17,10 +17,12 @@
 
 package com.think.leetcode.editor.cn;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class CongWeiDaoTouDaYinLianBiaoLcof {
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
@@ -30,28 +32,29 @@ public class CongWeiDaoTouDaYinLianBiaoLcof {
     }
     public static void main(String[] args) {
         Solution solution = new CongWeiDaoTouDaYinLianBiaoLcof().new Solution();
+        solution.reversePrint(new ListNode(1));
     }
 //leetcode submit region begin(Prohibit modification and deletion)
 
 
 
     class Solution {
-        // 利用栈或者递归
+        // 递归
         public int[] reversePrint(ListNode head) {
-            Stack<ListNode> stack = new Stack<>();
-            int size = 0;
-            while(head != null){
-                stack.push(head);
-                head = head.next;
-                size++;
-            }
-            int[] result = new int[size];
-            size = 0;
-            while(!stack.isEmpty()){
-                result[size++] = stack.pop().val;
-            }
+            ArrayList<Integer> array = new ArrayList<>();
+            getNum(array, head);
+            int[] result = array.stream().mapToInt(Integer::intValue).toArray();
             return result;
         }
+
+        public void getNum(List<Integer> array, ListNode node){
+            if(node == null){
+                return;
+            }
+            getNum(array, node.next);
+            array.add(node.val);
+        }
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
