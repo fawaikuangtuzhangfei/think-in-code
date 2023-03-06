@@ -5,8 +5,8 @@ package com.think.leetcode.editor.cn.entity;
  * @date 2023-02-22 14:13
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
     public TreeNode(int x) { val = x; }
 }

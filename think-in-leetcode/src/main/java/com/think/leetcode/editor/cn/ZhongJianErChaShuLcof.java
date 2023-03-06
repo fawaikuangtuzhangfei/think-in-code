@@ -39,14 +39,42 @@ import com.think.leetcode.editor.cn.entity.TreeNode;
 public class ZhongJianErChaShuLcof{
     public static void main(String[] args) {
         Solution solution = new ZhongJianErChaShuLcof().new Solution();
+        int[] preOrder = new int[]{3,9,20,15,7};
+        int[] inorder = new int[]{9,3,15,20,7};
+        solution.buildTree(preOrder, inorder);
    }
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        TreeNode root = new TreeNode(preorder[0]);
-        // 先序 根左右 中序 左右根
+        int length = preorder.length;
+        return build(preorder,0, length-1, inorder, 0, length-1);
 
-        return null;
+    }
+
+    private TreeNode build(int [] pre, int startPre, int endPre, int [] in, int startIn, int endIn){
+        // 中止条件
+        if(startPre > endPre || startIn > endIn){
+            return null;
+        }
+        // 当前根节点
+        TreeNode root = new TreeNode(pre[startPre]);
+
+        // 先序 根左右 中序 左右根
+//         preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+//        左子树个数=inIndex-inStart
+//        前序中的左子树=preStart+1~ preStart+左子树个数 中序中的左子树=inStart~inIndex-1
+//        前序中的右子树=preStart+左子树个数+1 ~ preEnd	中序中的右子树=inIndex+1~inEnd
+        int nowNodeIndex = 0;
+        for (int i = 0; i < in.length; i++) {
+            if(root.val == in[i]){
+                nowNodeIndex = i;
+                break;
+            }
+        }
+        int leftNodeCount = nowNodeIndex - startIn;
+        root.left = build(pre, startPre+1, startPre + leftNodeCount, in, startIn, nowNodeIndex-1);
+        root.right = build(pre, startPre+leftNodeCount+1, endPre, in, nowNodeIndex+1, endIn);
+        return root;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
