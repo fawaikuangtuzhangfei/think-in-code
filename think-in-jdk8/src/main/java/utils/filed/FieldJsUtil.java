@@ -1,7 +1,8 @@
-package utils.fiele;
+package utils.filed;
 
 /**
- * @author nanshoudabaojian
+ * 字段转js校验
+ * @author yechaoa
  * @date 2022-05-29 14:57
  */
 public class FieldJsUtil {
