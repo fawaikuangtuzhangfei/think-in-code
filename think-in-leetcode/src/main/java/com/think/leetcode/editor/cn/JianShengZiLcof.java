@@ -41,9 +41,6 @@ public class JianShengZiLcof {
          * 最后一段是0
          */
         public int cuttingRope(int n) {
-            if(n == 1){
-                return 1;
-            }
             if(n == 2){
                 return 1;
             }
@@ -59,7 +56,7 @@ public class JianShengZiLcof {
             }else if(last == 0){
                 result = (int) Math.pow(3, count);
             }else{
-                result = (int) Math.pow(3, count) * last;
+                result = (int) Math.pow(3, count) * 2;
             }
             return result;
         }
