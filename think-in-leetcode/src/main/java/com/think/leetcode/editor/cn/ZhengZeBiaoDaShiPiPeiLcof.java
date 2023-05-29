@@ -79,23 +79,23 @@ class Solution {
     public boolean isMatch(String str, String pattern) {
         int strIndex = 0;
         int patternIndex = 0;
-        return match(str, pattern, strIndex, patternIndex);
+        return match(str.toCharArray(), pattern.toCharArray(), strIndex, patternIndex);
     }
 
-    private boolean match(String str, String pattern, int strIndex, int patternIndex) {
-        if(strIndex == str.length() && patternIndex == pattern.length()){
+    private boolean match(char[] str, char[] pattern, int strIndex, int patternIndex) {
+        if(strIndex == str.length && patternIndex == pattern.length){
             return true;
         }
-        if(strIndex != str.length() && patternIndex == pattern.length()){
+        if(strIndex != str.length && patternIndex == pattern.length){
             return false;
         }
-        if(strIndex > str.length() || patternIndex > pattern.length()){
+        if(strIndex > str.length || patternIndex > pattern.length){
             return false;
         }
         // 第二个字符是*
-        if(patternIndex + 1 < pattern.length() && pattern.charAt(patternIndex + 1) == '*'){
+        if(patternIndex + 1 < pattern.length && pattern[patternIndex + 1] == '*'){
             // 第一个字符是否匹配或者等于.
-            if(strIndex < str.length() && str.charAt(strIndex) == pattern.charAt(patternIndex) || pattern.charAt(patternIndex) == '.'){
+            if(strIndex < str.length && str[strIndex] == pattern[patternIndex] || pattern[patternIndex] == '.'){
                 // 模式后移2字符，相当于x*被忽略；
                 return match(str, pattern, strIndex, patternIndex + 2) ||
                         // 字符串后移1字符，模式后移2字符=只匹配了一次
@@ -108,7 +108,7 @@ class Solution {
             }
         }
         // 第二个字符不是*
-        if(strIndex < str.length() && str.charAt(strIndex) == pattern.charAt(patternIndex) || pattern.charAt(patternIndex) == '.'){
+        if(strIndex < str.length && str[strIndex] == pattern[patternIndex] || pattern[patternIndex] == '.'){
             return match(str, pattern, strIndex + 1, patternIndex + 1);
         }
         return false;
