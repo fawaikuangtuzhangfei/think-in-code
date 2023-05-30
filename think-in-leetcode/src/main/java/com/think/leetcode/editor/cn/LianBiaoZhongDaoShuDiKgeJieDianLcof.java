@@ -23,18 +23,18 @@ public class LianBiaoZhongDaoShuDiKgeJieDianLcof {
 //leetcode submit region begin(Prohibit modification and deletion)
 
     class Solution {
+        /**
+         * 双指针
+         */
         public ListNode getKthFromEnd(ListNode head, int k) {
+            int lastIndex = 0;
             ListNode node = head;
-            int length = 0;
             while(node != null){
-                length++;
+                lastIndex++;
+                if(lastIndex > k){
+                    head = head.next;
+                }
                 node = node.next;
-            }
-            int target = length - k;
-            int index = 0;
-            while(head != null && index != target){
-                index++;
-                head = head.next;
             }
             return head;
         }
