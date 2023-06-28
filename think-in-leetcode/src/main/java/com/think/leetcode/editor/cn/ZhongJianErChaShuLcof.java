@@ -42,12 +42,13 @@ public class ZhongJianErChaShuLcof{
         int[] preOrder = new int[]{3,9,20,15,7};
         int[] inorder = new int[]{9,3,15,20,7};
         solution.buildTree(preOrder, inorder);
-   }
-//leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        int length = preorder.length;
-        return build(preorder,0, length-1, inorder, 0, length-1);
+    }
+
+    //leetcode submit region begin(Prohibit modification and deletion)
+    public class Solution {
+        public TreeNode buildTree(int[] preorder, int[] inorder) {
+            int length = preorder.length;
+            return build(preorder, 0, length - 1, inorder, 0, length - 1);
 
     }
 
