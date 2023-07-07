@@ -2,6 +2,8 @@ package com.think.leetcode.editor.cn.entity;
 
 import com.think.leetcode.editor.cn.ZhongJianErChaShuLcof;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -21,7 +23,27 @@ public class TreeNode {
         int[] inorder = new int[]{9,3,15,20,7};
         TreeNode root = solution.buildTree(preOrder, inorder);
 //        ergodic(root);
-        System.out.println(dfs(root));
+//        System.out.println(dfs(root));
+        bfs(root);
+    }
+
+    /**
+     * 广度遍历
+     * @param root  根节点
+     */
+    public static void bfs(TreeNode root){
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            TreeNode poll = queue.poll();
+            System.out.println(poll.val);
+            if(poll.left != null){
+                queue.offer(poll.left);
+            }
+            if(poll.right != null){
+                queue.offer(poll.right);
+            }
+        }
     }
 
     /**
