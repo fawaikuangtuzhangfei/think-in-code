@@ -2,7 +2,9 @@ package com.think.leetcode.editor.cn.entity;
 
 import com.think.leetcode.editor.cn.ZhongJianErChaShuLcof;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -24,7 +26,60 @@ public class TreeNode {
         TreeNode root = solution.buildTree(preOrder, inorder);
 //        ergodic(root);
 //        System.out.println(dfs(root));
-        bfs(root);
+//        bfs(root);
+        System.out.println(serialize(null));
+        bfs(deserialize(serialize(root)));
+    }
+
+    public static String serialize(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            TreeNode current = queue.poll();
+            if(current == null){
+                result.add(null);
+                continue;
+            }
+            result.add(current.val);
+            queue.offer(current.left);
+            queue.offer(current.right);
+        }
+        return result.toString();
+    }
+
+    public static TreeNode deserialize(String data) {
+        if("[null]".equals(data)){
+            return null;
+        }
+        data = data.replace("[", "").replace("]", "").replaceAll(" ", "");
+        String[] split = data.split(",");
+        TreeNode root = new TreeNode(Integer.valueOf(split[0]));
+        int index = 1;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            TreeNode current = queue.poll();
+            if(current == null){
+                continue;
+            }
+            String left = split[index++];
+            if("null".equals(left)){
+                current.left = null;
+            }else{
+                current.left = new TreeNode(Integer.valueOf(left));
+            }
+            String right = split[index++];
+            if("null".equals(right)){
+                current.right = null;
+            }else{
+                current.right = new TreeNode(Integer.valueOf(right));
+            }
+
+            queue.offer(current.left);
+            queue.offer(current.right);
+        }
+        return root;
     }
 
     /**
@@ -92,3 +147,4 @@ public class TreeNode {
     }
 
 }
+
