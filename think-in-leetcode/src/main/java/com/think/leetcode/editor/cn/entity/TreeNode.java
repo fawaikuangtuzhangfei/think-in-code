@@ -2,6 +2,7 @@ package com.think.leetcode.editor.cn.entity;
 
 import com.think.leetcode.editor.cn.ZhongJianErChaShuLcof;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -54,7 +55,7 @@ public class TreeNode {
         }
         data = data.replace("[", "").replace("]", "").replaceAll(" ", "");
         String[] split = data.split(",");
-        TreeNode root = new TreeNode(Integer.valueOf(split[0]));
+        TreeNode root = new TreeNode(Integer.parseInt(split[0]));
         int index = 1;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
@@ -67,13 +68,13 @@ public class TreeNode {
             if("null".equals(left)){
                 current.left = null;
             }else{
-                current.left = new TreeNode(Integer.valueOf(left));
+                current.left = new TreeNode(Integer.parseInt(left));
             }
             String right = split[index++];
             if("null".equals(right)){
                 current.right = null;
             }else{
-                current.right = new TreeNode(Integer.valueOf(right));
+                current.right = new TreeNode(Integer.parseInt(right));
             }
 
             queue.offer(current.left);
