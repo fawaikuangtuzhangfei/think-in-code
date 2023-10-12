@@ -1,4 +1,4 @@
-package thred.threadlocal;
+package thred.atomic;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,12 +15,12 @@ public class AtomicAbaTest {
         AtomicInteger count = new AtomicInteger(100);
 
 //		ABA问题
-//         abcTest(count);
+        abcTest(count);
 
 
 //		ABA的解决
 
-        dealAba();
+        // dealAba();
     }
 
     private static void dealAba() {
