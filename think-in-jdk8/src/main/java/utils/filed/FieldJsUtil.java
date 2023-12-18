@@ -12,27 +12,33 @@ public class FieldJsUtil {
     }
 
     public static String generous(){
-        String result = new String("if (!params.%s) {\n" +
+        String result = new String("if (!params.%s && params.%s != 0) {\n" +
                 "        list.push({\n" +
                 "            fieldCode: \"%s\",\n" +
                 "            fieldName: \"%s\"\n" +
                 "        })\n" +
                 "    }");
-        String str = "ahjszqx,户籍所在地区\n" +
-                "azjhm,证件号码\n" +
-                "ackrsjhm,银行预留手机号码\n" +
-                "akhxm,申请人姓名\n" +
-                "ahjszsf,户籍所在省份\n" +
-                "asqrzy,申请人职业\n" +
-                "ahkrjjkzh,借记卡帐号\n" +
-                "ahjszdz,户籍地详细地址\n" +
-                "ahjszcs,户籍所在城市";
+        String str = "carEvaluationReportPrice,二手车评估价格 / 车辆评估价\n" +
+                "appName,品牌\n" +
+                "fxsj,实际成交价\n" +
+                "leaseType,租赁类型\n" +
+                "f050,购置税\n" +
+                "f060,GPS费用\n" +
+                "frze,客户融资额\n" +
+                "businesstype,业务类型\n" +
+                "axjzdcsName,居住地址 市-中文\n" +
+                "ixjzdjznx,现居住地居住年限\n" +
+                "fzdj,官方指导价\n" +
+                "fsfje,首付金额\n" +
+                "acxName,车型\n" +
+                "arzqx,融资期限\n" +
+                "fshnx,税后年薪(万元)\n";
         String[] split = str.split("\n");
         for (String s : split) {
             String[] split1 = s.split(",");
             String param = split1[0];
             String msg = split1[1];
-            System.out.println(String.format(result, param, param, msg));
+            System.out.println(String.format(result, param, param, param, msg));
         }
         System.out.println("结束...");
         return "结束";
