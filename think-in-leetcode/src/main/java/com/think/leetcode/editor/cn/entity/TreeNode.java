@@ -25,11 +25,30 @@ public class TreeNode {
         int[] preOrder = new int[]{3,9,20,15,7};
         int[] inorder = new int[]{9,3,15,20,7};
         TreeNode root = solution.buildTree(preOrder, inorder);
-//        ergodic(root);
+        traverse(root);
+       ergodic(root);
 //        System.out.println(dfs(root));
 //        bfs(root);
-        System.out.println(serialize(null));
-        bfs(deserialize(serialize(root)));
+//         System.out.println(serialize(null));
+//         bfs(deserialize(serialize(root)));
+    }
+
+    /**
+     * 递归调用
+     * 前序=节点进入的时刻
+     * 后序=节点离开的时刻
+     * @param root
+     */
+    public static void traverse(TreeNode root){
+        if(root == null){
+            return;
+        }
+        System.out.println(root.val);
+        // 前序遍历
+        traverse(root.left);
+        // 中序遍历
+        traverse(root.right);
+        // 后序遍历
     }
 
     public static String serialize(TreeNode root) {
