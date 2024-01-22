@@ -44,9 +44,15 @@ public class BinarySearch{
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int search(int[] nums, int target) {
+        // 避免当 target 小于nums[0] nums[nums.length - 1]时多次循环运算
+        if (target < nums[0] || target > nums[nums.length - 1]) {
+            return -1;
+        }
+        // 区间=[left,right]
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
+            // 防止两数过大造成溢出int，等价与 (left + right) / 2
+            int mid = left + ((right - left) / 2);
             if(target > nums[mid]){
                 left = mid + 1;
             }else if(target < nums[mid]){
