@@ -54,16 +54,58 @@ public class FindFirstAndLastPositionOfElementInSortedArray{
   //leetcode submit region begin(Prohibit modification and deletion)
 
     /**
-     * //输入：nums = [5,7,7,8,8,10], target = 8
-     * //输出：[3,4]
-     * 1.不在数组范围内 则返回 -1 -1
-     * eg：1,2,3 target=4    1,2,3 target=0
-     * 2.在数组范围内，且存在则返回对应的 [3,4]
-     * [5,7,7,8,8,10], target = 8
-     * 3.在数组范围内，但是不存在 返回 -1 -1
-     * eg：1,2,4 target=3
+     * 解法2，找到第一个相等的，然后左右滑动
      */
     class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        int leftResult = -2;
+        int rightResult = -2;
+        // 二分查找第一个相等的元素位置
+        // nums = [1,3,4], target = 0
+        while (left <= right) {
+            int mid = left + ((right - left) / 2);
+            if(target > nums[mid]){
+                left = mid + 1;
+            }else if(target < nums[mid]){
+                right = mid - 1;
+            }else{
+                leftResult = mid;
+                rightResult = mid;
+                break;
+            }
+        }
+        if(leftResult == -2){
+            return new int[]{-1, -1};
+        }
+        // 找左边界
+        while(leftResult-1 >= 0 && nums[leftResult - 1] == target){
+            leftResult--;
+        }
+        while(rightResult+1 < nums.length && nums[rightResult+1] == target){
+            rightResult++;
+        }
+        return new int[]{leftResult, rightResult};
+    }
+
+
+
+}
+//leetcode submit region end(Prohibit modification and deletion)
+
+}
+
+/**
+ * //输入：nums = [5,7,7,8,8,10], target = 8
+ * //输出：[3,4]
+ * 1.不在数组范围内 则返回 -1 -1
+ * eg：1,2,3 target=4    1,2,3 target=0
+ * 2.在数组范围内，且存在则返回对应的 [3,4]
+ * [5,7,7,8,8,10], target = 8
+ * 3.在数组范围内，但是不存在 返回 -1 -1
+ * eg：1,2,4 target=3
+ */
+class Solution2 {
     public int[] searchRange(int[] nums, int target) {
         if(nums.length == 0){
             return new int[]{-1, -1};
@@ -82,47 +124,44 @@ public class FindFirstAndLastPositionOfElementInSortedArray{
         return new int[]{-1, -1};
     }
 
-      public int searchLeft(int[] nums, int target) {
-          int left = 0, right = nums.length - 1;
-          int mid;
-          int leftResult = -2;
-          // 二分查找边界（不包含此数）
-          // nums = [1,3,4], target = 0
-          while (left <= right) {
-              mid = left + ((right - left) / 2);
-              // 说明值在 left,mid,当等于时更新左边界
-              if(nums[mid] >= target){
-                  right = mid - 1;
-                  leftResult = right;
-              }else{
-                  left = mid + 1;
-              }
-          }
-          return leftResult;
-      }
-
-        public int searchRight(int[] nums, int target) {
-            int left = 0, right = nums.length - 1;
-            int mid;
-            int rightResult = -2;
-            // 二分查找右边界（不包含此数）
-            // nums = [1,3,4], target = 5
-            while (left <= right) {
-                mid = left + ((right - left) / 2);
-                // 说明值在 left,mid
-                if(nums[mid] > target){
-                    right = mid - 1;
-                }else{
-                    // 等于mid时
-                    left = mid + 1;
-                    rightResult = left;
-                }
+    public int searchLeft(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        int mid;
+        int leftResult = -2;
+        // 二分查找边界（不包含此数）
+        // nums = [1,3,4], target = 0
+        while (left <= right) {
+            mid = left + ((right - left) / 2);
+            // 说明值在 left,mid,当等于时更新左边界
+            if(nums[mid] >= target){
+                right = mid - 1;
+                leftResult = right;
+            }else{
+                left = mid + 1;
             }
-            return rightResult;
         }
+        return leftResult;
+    }
 
+    public int searchRight(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        int mid;
+        int rightResult = -2;
+        // 二分查找右边界（不包含此数）
+        // nums = [1,3,4], target = 5
+        while (left <= right) {
+            mid = left + ((right - left) / 2);
+            // 说明值在 left,mid
+            if(nums[mid] > target){
+                right = mid - 1;
+            }else{
+                // 等于mid时
+                left = mid + 1;
+                rightResult = left;
+            }
+        }
+        return rightResult;
+    }
 
-}
-//leetcode submit region end(Prohibit modification and deletion)
 
 }
