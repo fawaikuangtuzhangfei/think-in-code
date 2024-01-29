@@ -87,7 +87,8 @@ public class DesignLinkedList {
         }
 
         public int get(int index) {
-            if(index > size - 1 || index < 0){
+            // index从0开始的 size=1 则index最大=0；所以index>=size时则超出边界
+            if(index >= size || index < 0){
                 return -1;
             }
             ListNode currentNode = head.next;
@@ -134,25 +135,24 @@ public class DesignLinkedList {
         }
 
         public void deleteAtIndex(int index) {
-            if(index > size - 1){
+            // size=1时 index最大=0 超过则无法删除 所以满足条件是<
+            if(index >= size){
+                return;
+            }
+            size--;
+
+            if (index == 0) {
+                // 虚拟节点向后移动一位（去头）
+                head = head.next;
                 return;
             }
             ListNode currentNode = head;
-            if (index == 0) {
-                if (currentNode.next != null) {
-                    currentNode.next = currentNode.next.next;
-                }
-                size--;
-                return;
-            }
-
             while(index-- > 0 && currentNode != null){
                 currentNode = currentNode.next;
             }
             if (currentNode.next != null) {
                 currentNode.next = currentNode.next.next;
             }
-            size--;
         }
     }
 
